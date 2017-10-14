@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/contactDetailAvatar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contactDetailName"
+            android:text="qweweqweq"
+            android:textSize="30sp"
+            android:textColor="#ff0000"
+            android:layout_toRightOf="@+id/contactDetailAvatar"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contactDetailPhone"
+            android:layout_toRightOf="@+id/contactDetailAvatar"
+            android:layout_below="@+id/contactDetailName"
+            android:text="123123123"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"/>
+        <ImageButton
+            android:background="@drawable/delete"
+            android:layout_alignParentEnd="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/ibtnDelete"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnEdit"
+            android:text="Sửa"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCall"
+            android:text="Gọi"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSMS"
+            android:text="SMS"/>
+
+
+    </LinearLayout>
+</LinearLayout>
