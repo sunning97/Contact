@@ -36,6 +36,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.widget.Toast.makeText;
+
 public class MainActivity extends AppCompatActivity {
     EditText inputName, inputPhone;
     RadioButton rbtnMale, rbtnFemale;
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 else sex = 2;
 
                 if (TextUtils.isEmpty(name) || TextUtils.isEmpty(phone)) {
-                    Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    makeText(MainActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 } else {
                     Contact c = new Contact(name, phone, sex);
                     insertDatabase(c);
@@ -180,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
         final Contact c = list.get(i);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("Xác nhận xóa: ");
+        builder.setMessage("Bạn có thực sự muốn xóa: ");
 
         builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
@@ -194,9 +196,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 database.delete("Contact", "phone=?", new String[]{c.getPhone()});
+                Toast.makeText(MainActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                 readDatabase();
                 adapter.notifyDataSetChanged();
-                Toast.makeText(MainActivity.this, "Xoa thanh cong", Toast.LENGTH_SHORT);
                 dialog.dismiss();
             }
         });
@@ -254,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
                 else sex = 2;
 
                 if (TextUtils.isEmpty(name) || TextUtils.isEmpty(phone))
-                    Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    makeText(MainActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 else {
                     ContentValues row = new ContentValues();
                     row.put("name", name);
